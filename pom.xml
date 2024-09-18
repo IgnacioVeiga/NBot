@@ -20,6 +20,7 @@
             <artifactId>telegrambots-longpolling</artifactId>
             <version>7.10.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots-client</artifactId>
