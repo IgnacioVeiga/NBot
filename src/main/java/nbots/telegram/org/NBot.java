@@ -1,8 +1,8 @@
-package nbots.telegram;
+package nbots.telegram.org;
 
-import nbots.telegram.commands.PicCommand;
-import nbots.telegram.commands.StartCommand;
-import nbots.telegram.commands.DeleteCommand;
+import nbots.telegram.org.commands.PicCommand;
+import nbots.telegram.org.commands.StartCommand;
+import nbots.telegram.org.commands.DeleteCommand;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.longpolling.interfaces.LongPollingUpdateConsumer;
 import java.util.List;

@@ -1,6 +1,6 @@
-package nbots.telegram.commands;
+package nbots.telegram.org.commands;
 
-import nbots.telegram.services.MessageService;
+import nbots.telegram.org.services.MessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class StartCommand {

@@ -1,6 +1,6 @@
-package nbots.telegram.utils;
+package nbots.telegram.org.components;
 
-public class BotConfig {
+public class AppEnvComponent {
     private static final String botToken = System.getenv("TELEGRAM_TOKEN");
 
     public static String getBotToken() {

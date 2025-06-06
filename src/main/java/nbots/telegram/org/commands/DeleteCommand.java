@@ -1,6 +1,6 @@
-package nbots.telegram.commands;
+package nbots.telegram.org.commands;
 
-import nbots.telegram.services.DeleteMessageService;
+import nbots.telegram.org.services.DeleteMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.Random;

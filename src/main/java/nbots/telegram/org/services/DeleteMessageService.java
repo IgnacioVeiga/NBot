@@ -1,12 +1,12 @@
-package nbots.telegram.services;
+package nbots.telegram.org.services;
 
-import nbots.telegram.utils.BotConfig;
+import nbots.telegram.org.components.AppEnvComponent;
 import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class DeleteMessageService {
-    private static final OkHttpTelegramClient telegramClient = new OkHttpTelegramClient(BotConfig.getBotToken());
+    private static final OkHttpTelegramClient telegramClient = new OkHttpTelegramClient(AppEnvComponent.getBotToken());
 
     public static void deleteMessage(long chatId, int messageId) {
         DeleteMessage deleteMessage = DeleteMessage.builder().chatId(chatId).messageId(messageId).build();

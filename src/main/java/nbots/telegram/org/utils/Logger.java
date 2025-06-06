@@ -1,4 +1,4 @@
-package nbots.telegram.utils;
+package nbots.telegram.org.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
