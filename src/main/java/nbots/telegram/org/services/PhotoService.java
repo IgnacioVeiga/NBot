@@ -1,6 +1,7 @@
 package nbots.telegram.org.services;
 
 import nbots.telegram.org.components.AppEnvComponent;
+import nbots.telegram.org.utils.Logger;
 import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
@@ -18,7 +19,7 @@ public class PhotoService {
         try {
             telegramClient.execute(photo);
         } catch (TelegramApiException e) {
-            System.out.println("Exception sending photo: " + e.getMessage());
+            Logger.log("Exception sending message: " + e.getMessage());
         }
     }
 }

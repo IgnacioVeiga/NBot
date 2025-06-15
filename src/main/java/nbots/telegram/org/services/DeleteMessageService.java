@@ -1,6 +1,7 @@
 package nbots.telegram.org.services;
 
 import nbots.telegram.org.components.AppEnvComponent;
+import nbots.telegram.org.utils.Logger;
 import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -13,9 +14,9 @@ public class DeleteMessageService {
 
         try {
             telegramClient.execute(deleteMessage);
-            System.out.println("Message with ID " + messageId + " deleted.");
+            Logger.log("Message with ID " + messageId + " deleted.");
         } catch (TelegramApiException e) {
-            System.out.println("Error deleting message: " + e.getMessage());
+            Logger.log("Error deleting message: " + e.getMessage());
         }
     }
 }

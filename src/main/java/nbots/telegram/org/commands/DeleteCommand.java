@@ -5,8 +5,8 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.Random;
 
-public class DeleteCommand {
-
+public class DeleteCommand implements CommandHandler.Command {
+    @Override
     public void execute(Update update) {
         String command = update.getMessage().getText();
 
