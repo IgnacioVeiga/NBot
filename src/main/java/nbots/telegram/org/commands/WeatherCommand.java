@@ -39,12 +39,7 @@ public class WeatherCommand implements CommandHandler.Command {
     @NotNull
     private static JSONObject getJsonObject(String city, String apiKey) throws IOException {
         String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric&lang=es";
-        URL url = URI.create("").toURL();
-        try {
-            url = URI.create(urlString).toURL();
-        } catch (MalformedURLException e) {
-            Logger.log("Exception sending message: " + e.getMessage());
-        }
+        URL url = URI.create(urlString).toURL();
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
