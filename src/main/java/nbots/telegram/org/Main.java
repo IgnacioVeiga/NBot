@@ -1,6 +1,7 @@
 package nbots.telegram.org;
 
 import nbots.telegram.org.components.AppEnvComponent;
+import nbots.telegram.org.utils.Logger;
 import org.telegram.telegrambots.longpolling.TelegramBotsLongPollingApplication;
 
 public class Main {
@@ -8,11 +9,11 @@ public class Main {
         try (TelegramBotsLongPollingApplication botsApplication = new TelegramBotsLongPollingApplication()) {
             botsApplication.registerBot(AppEnvComponent.getBotToken(), new NBot());
 
-            System.out.println("Bot successfully started!");
+            Logger.log("Bot successfully started!");
 
             Thread.currentThread().join();
         } catch (Exception e) {
-            System.out.println("Exception! \n" + e.getMessage());
+            Logger.log("Exception! \n" + e.getMessage());
         }
     }
 }

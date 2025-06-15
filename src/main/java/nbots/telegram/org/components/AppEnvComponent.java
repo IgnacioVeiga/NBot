@@ -1,9 +1,6 @@
 package nbots.telegram.org.components;
 
 public class AppEnvComponent {
-    private static final String botToken = System.getenv("TELEGRAM_TOKEN");
-
-    public static String getBotToken() {
-        return botToken;
-    }
+    public static String getBotToken() { return System.getenv("BOT_TOKEN"); }
+    public static String getWeatherApiKey() { return System.getenv("WEATHER_API_KEY"); }
 }
