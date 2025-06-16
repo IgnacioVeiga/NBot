@@ -14,6 +14,7 @@ public class Main {
             Thread.currentThread().join();
         } catch (Exception e) {
             Logger.log("Exception! \n" + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
