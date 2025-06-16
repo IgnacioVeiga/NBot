@@ -17,8 +17,8 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# Copia el JAR generado
-COPY --from=build /app/target/NBot-1.0-SNAPSHOT-jar-with-dependencies.jar /app/NBot.jar
+# Copia el JAR generado (fat jar generado por maven-shade-plugin)
+COPY --from=build /app/target/NBot-1.0-SNAPSHOT-shaded.jar /app/NBot.jar
 
 # Comando para ejecutar la aplicación
 CMD ["java", "-jar", "/app/NBot.jar"]
