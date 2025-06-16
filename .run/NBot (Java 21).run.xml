@@ -1,11 +1,12 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Main" type="Application" factoryName="Application">
+  <configuration default="false" name="NBot (Java 21)" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="envFilePaths">
       <option value="$PROJECT_DIR$/.env" />
     </option>
     <option name="MAIN_CLASS_NAME" value="nbots.telegram.org.Main" />
     <module name="NBot" />
-    <shortenClasspath name="MANIFEST" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
