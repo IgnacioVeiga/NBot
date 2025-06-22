@@ -1,7 +1,8 @@
-# docker run -e BOT_TOKEN=telegram_token -e WEATHER_API_KEY=openwheather_api_key nbot
-
 # Imagen base con Java y Maven
 FROM maven:3.9.6-eclipse-temurin-21 AS build
+
+ARG BOT_TOKEN=BOT_TOKEN
+ARG WEATHER_API_KEY=WEATHER_API_KEY
 
 # Establece el directorio de trabajo
 WORKDIR /app
