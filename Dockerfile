@@ -1,25 +1,18 @@
-# Imagen base con Java y Maven
-FROM maven:3.9.6-eclipse-temurin-21 AS build
+# Requiere variables de entorno, usar archivo .env o setearlas donde corresponda.
+# Para hacer una build de la imágen: docker build -t nbot .
+# Para crear el contenedor: docker run --env-file .env -p 8080:8080 nbot
 
-ARG BOT_TOKEN=BOT_TOKEN
-ARG WEATHER_API_KEY=WEATHER_API_KEY
-
-# Establece el directorio de trabajo
+# Etapa 1: Build con Maven
+FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
+COPY . .
+RUN ./mvnw clean package -DskipTests
 
-# Copia los archivos de proyecto
-COPY pom.xml .
-COPY src ./src
-
-# Descarga dependencias y compila el proyecto
-RUN mvn clean package -DskipTests
-
-# Imagen final
-FROM eclipse-temurin:21-jre
+# Etapa 2: Imagen final con JRE Alpine (más liviana)
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
+COPY --from=build /app/target/app.jar app.jar
+EXPOSE 8080
 
-# Copia el JAR generado (fat jar generado por maven-shade-plugin)
-COPY --from=build /app/target/NBot-1.0-SNAPSHOT-shaded.jar /app/NBot.jar
-
-# Comando para ejecutar la aplicación
-CMD ["java", "-jar", "/app/NBot.jar"]
+# Comando de inicio del contenedor
+ENTRYPOINT ["java", "-jar", "app.jar"]
