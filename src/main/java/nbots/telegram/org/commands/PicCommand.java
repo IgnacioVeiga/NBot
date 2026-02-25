@@ -1,5 +1,7 @@
 package nbots.telegram.org.commands;
 
+import nbots.telegram.org.i18n.BotLanguage;
+import nbots.telegram.org.i18n.I18n;
 import nbots.telegram.org.services.PhotoService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -7,8 +9,9 @@ public class PicCommand implements CommandHandler.Command {
     @Override
     public void execute(Update update) {
         long chatId = update.getMessage().getChatId();
+        BotLanguage language = I18n.language(update);
         String imageUrl = "https://png.pngtree.com/background/20230519/original/pngtree-this-is-a-picture-of-a-tiger-cub-that-looks-straight-picture-image_2660243.jpg";
-        String caption = "¡Mira este tigre adorable! 🐯";
+        String caption = I18n.t(language, "Look at this adorable tiger! 🐯", "¡Mira este tigre adorable! 🐯");
         PhotoService.sendPhoto(chatId, imageUrl, caption);
     }
 }
