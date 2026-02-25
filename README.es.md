@@ -48,6 +48,11 @@ Comandos de admin / restringidos:
 - `/pyhello [args...]` -> ejecuta `scripts/python/hello_admin.py` (solo admin, experimental)
 - `/pyrun <script.py> [args...]` -> ejecuta un script desde `scripts/python` (solo admin, experimental)
 
+Visibilidad en ayuda:
+
+- `/help` oculta comandos de admin para usuarios no admin
+- `/help` solo muestra comandos Python para admin cuando `PYTHON_COMMANDS_ENABLED=true`
+
 ## Variables de entorno
 
 Obligatoria:
@@ -100,6 +105,15 @@ O usar:
 ./run.sh
 ```
 
+## CI (GitHub Actions)
+
+- Workflow: `.github/workflows/ci.yml`
+- Disparo: `push` en cualquier branch excepto `main`
+- Pasos:
+  - compilación (`./mvnw -B -DskipTests compile`)
+  - tests (`./mvnw -B test`)
+- No necesita credenciales válidas del bot porque en CI solo compila y corre tests.
+
 ## Estructura del proyecto (alto nivel)
 
 - `src/main/java/nbots/telegram/org/commands` - comandos del bot
@@ -108,8 +122,14 @@ O usar:
 - `src/main/java/nbots/telegram/org/utils` - utilidades
 - `scripts/python` - scripts Python solo admin (experimental)
 
+Scripts utilitarios seguros de ejemplo en `scripts/python`:
+
+- `hello_admin.py` - salida JSON de ejemplo para `/pyhello`
+- `hash_text.py` - genera hashes (`sha256`/`sha512`) de texto para usar con `/pyrun`
+
 ## Notas
 
 - Los comandos Python están restringidos intencionalmente a usuarios admin.
 - Usuarios no autorizados que llamen comandos Python de admin no reciben respuesta.
+- `/help` también oculta entradas de admin/Python cuando no aplican al usuario/configuración actual.
 - `/admin` es una prueba base para futuras funciones exclusivas de administración.
