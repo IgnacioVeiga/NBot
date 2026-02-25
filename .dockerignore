@@ -1,0 +1,8 @@
+.env
+.git
+.gitignore
+.idea
+.run
+target
+data
+scripts/python/__pycache__/

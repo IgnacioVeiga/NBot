@@ -1,13 +1,15 @@
 package nbots.telegram.org.commands;
 
+import nbots.telegram.org.i18n.BotLanguage;
+import nbots.telegram.org.i18n.I18n;
 import nbots.telegram.org.services.MessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class StartCommand implements CommandHandler.Command {
     @Override
     public void execute(Update update) {
-        String messageText = "¡Hola! ¿En que te ayudo?";
         long chatId = update.getMessage().getChatId();
-        MessageService.sendMessage(chatId, messageText);
+        BotLanguage language = I18n.language(update);
+        MessageService.sendMessage(chatId, I18n.t(language, "Hi! How can I help you?", "¡Hola! ¿En qué te ayudo?"));
     }
 }

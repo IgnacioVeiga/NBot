@@ -1,6 +1,10 @@
 .env
-message_history.txt
+data/history/
+data/reminders.json
+data/user_preferences.json
+dependency-reduced-pom.xml
 target/
+scripts/python/__pycache__/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
